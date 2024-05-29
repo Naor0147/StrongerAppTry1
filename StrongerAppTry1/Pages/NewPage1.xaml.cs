@@ -9,7 +9,12 @@ public partial class NewPage1 : ContentPage
 		InitializeComponent();
 		Exercise exercise = new Exercise("incline dumbbell bench press", "strong", BodyGroup.Chest, ImageSource.FromFile("incline_dumbbell_bench_press.png"));
         ExerciseName.Text = exercise._Name;
-
+       
     }
 
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+        Application.Current.MainPage = new NavigationPage(new MainPage());
+
+    }
 }

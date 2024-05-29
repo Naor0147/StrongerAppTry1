@@ -13,15 +13,26 @@ namespace StrongerAppTry1
 
         private void OnCounterClicked(object sender, EventArgs e)
         {
-            count++;
+            Button button = (Button)sender;
+            string text = button.Text;
+            switch (text)
+            {
+                case "Exercise":
+                    App.Current.MainPage = new NavigationPage(new NewPage1());
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+                    break;
+                case "Exercises_Page":
+                    App.Current.MainPage = new NavigationPage(new Excerics_Page());
 
-            App.Current.MainPage = new NavigationPage(new NewPage1());
-            Image1.Source = ImageSource.FromFile("incline_dumbbell_bench_press.png");
+                    break;
+                case "Test":
+                    App.Current.MainPage = new NavigationPage(new NewPage2());
+
+                    break;
+
+
+            }
+           
 
         }
     }

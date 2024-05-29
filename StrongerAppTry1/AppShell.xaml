@@ -7,9 +7,16 @@
     Shell.FlyoutBehavior="Disabled"
     Title="StrongerAppTry1">
 
-    <ShellContent
-        Title="Naor"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar Route="Home" >
+        <Tab Icon="dotnet_bot.png" Title="Main">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+        <Tab Icon="dotnet_bot.png" Title="Profile">
+            <ShellContent ContentTemplate="{DataTemplate local:TestPage1}"/>
+        </Tab>
+        <Tab Icon="dotnet_bot.png" Title="Test">
+            <ShellContent ContentTemplate="{DataTemplate local:TestPage2}"/>
+        </Tab>
+    </TabBar>
 
 </Shell>

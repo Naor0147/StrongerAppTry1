@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="StrongerAppTry1.Pages.NewPage1"
-             Title="NewPage1">
+             x:Class="StrongerAppTry1.Pages.Excerics_Page"
+             Title="Excerics_Page">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="7*"/>
+            
             <RowDefinition/>
-
+            <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
 
 
 
-      
-    <ScrollView>
-        <VerticalStackLayout
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            
-            <Label
+
+                <Label
                     x:Name="ExerciseName"
                    Text="{Binding _Name}"
                    Style="{StaticResource Headline}"
@@ -33,9 +33,9 @@
                     <Image Aspect="AspectFit"   Source="incline_dumbbell_bench_press.png"  />
                 </Border>
 
-                
 
-            <Label
+
+                <Label
                 x:Name="ExerciseDescription"
                 Text="dfsds"
                 Style="{StaticResource Headline}"
@@ -43,7 +43,7 @@
                 HorizontalTextAlignment="Center"
                 FontSize="Medium"   
                 />
-            <Label
+                <Label
                 x:Name="ExerciseBodyGroup"
                 Text="dfsdfs"
                 Style="{StaticResource Headline}"
@@ -52,7 +52,7 @@
                 FontSize="Medium"   
             />
 
-            <Label
+                <Label
                 x:Name="ExerciseBodyGroupgg"
                 Text="bootom"
                 Style="{StaticResource Headline}"
@@ -61,12 +61,28 @@
                 FontSize="Medium"   
                 VerticalTextAlignment="End"
                 VerticalOptions="End"
-            />  
-            
-        </VerticalStackLayout>
+            />
+
+
+                <Entry Text="he" FontSize="80 ">
+                    
+                </Entry>
+            </VerticalStackLayout>
 
         </ScrollView>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border  Grid.ColumnSpan="3" Stroke="Black" StrokeThickness="6">
+                
+            </Border>
+           
+            <Button Grid.Column="0" FontSize="Medium" Text= "="  Clicked="Button_Clicked"   HorizontalOptions="Center" Margin="20" CornerRadius="14" VerticalOptions="Center" ></Button>
 
-        <Button FontSize="Medium" Text="go back" Clicked="Button_Clicked"  Grid.Row="1" HorizontalOptions="Fill" Margin="20" CornerRadius="14"></Button>
+        </Grid>
     </Grid>
 </ContentPage>

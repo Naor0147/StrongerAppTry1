@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StrongerAppTry1.Pages.NewPage2"
+             Title="NewPage2">
+    <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="7*"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+
+        <Button FontSize="Medium" Grid.Row="1" Text="go back" Clicked="Button_Clicked"   HorizontalOptions="Fill" Margin="20" CornerRadius="14"></Button>
+
+        
+    <VerticalStackLayout Margin="20,0,0,0" >
+            <!-- Text="{Binding ExerciseWithSet}"-->
+
+            <Label  Margin="0,0,10,20"
+            Text="Exercise Name"
+                FontSize="Title"
+                FontAttributes="Bold"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <HorizontalStackLayout  >
+            <VerticalStackLayout  x:Name="SetStack">
+               
+                       
+                            <Label 
+                                Style="{StaticResource CustomLabelStyle}"
+                                Text="set"
+
+                         />
+
+                   
+
+                    <Label
+                   Style="{StaticResource CustomLabelSetStyle}"
+                       Text="1"
+                        Margin="0,10,0,0"
+                />
+              <Label
+                    Style="{StaticResource CustomLabelSetStyle}"
+                    Text="2"
+                        Margin="0,10,0,0"
+                  
+                 />
+              <Label
+                    Style="{StaticResource CustomLabelSetStyle}"
+                    Text="3"
+                        Margin="0,10,0,0"
+                  
+                 />
+                
+              
+            </VerticalStackLayout>
+                <VerticalStackLayout Margin=" 100,0,100,0" x:Name="WeightStack">
+                   
+                                    <Label 
+                             Style="{StaticResource CustomLabelStyle}"
+                             Text="Kg"
+                      />
+
+
+
+                    <Border 
+                     Style="{StaticResource CustomBorderSmallStyle}">
+                            <Label
+                                Style="{StaticResource CustomLabelSetStyle}"
+                                Text="60"
+                     />
+                    </Border>
+
+                </VerticalStackLayout>
+                <VerticalStackLayout x:Name="RepStack">
+                   
+                        <Label
+                               Style="{StaticResource CustomLabelStyle}"
+                               Text="Reps"
+                        />
+
+                   
+
+                    <Border 
+                       Style="{StaticResource CustomBorderStyle}">
+                        <Entry
+                               Text="daa"
+                            
+                        />
+
+                    </Border>
+
+
+
+
+
+                </VerticalStackLayout>
+
+        </HorizontalStackLayout>
+
+
+        </VerticalStackLayout>
+
+        <!-- diffreant layout  -->
+        
+        
+        
+        
+    </Grid>
+</ContentPage>
