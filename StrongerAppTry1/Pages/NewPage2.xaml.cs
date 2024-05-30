@@ -7,10 +7,10 @@ public partial class NewPage2 : ContentPage
 		InitializeComponent();
         Border border = new Border();
         border.Style = (Style)Application.Current.Resources["CustomBorderSmallStyle"];
-        Label labelx = new Label();
-        labelx.Text = "40";
-        labelx.Style = (Style)Application.Current.Resources["CustomLabelSetStyle"];
-        border.Content =(labelx);
+        Entry EnteryX = new Entry();
+        EnteryX.Text = "40";
+        EnteryX.Style = (Style)Application.Current.Resources["CustomEntrySetStyle"];
+        border.Content = (EnteryX);
 
         RepStack.Add(border);
 	}

@@ -11,6 +11,10 @@ namespace StrongerAppTry1.Classes
         WarmUp,
         DropSet,
     }
+    //enum Rpe
+    //{
+    //    None,
+    //}
 
     struct Set
     {
@@ -18,12 +22,14 @@ namespace StrongerAppTry1.Classes
         public double weight { get; set; }
         public SetType type { get; set; }
 
+        public double rpe {  get; set; }
 
-        public Set(double rep, double weight, SetType setType = SetType.Regular)
+        public Set(double rep, double weight, SetType setType = SetType.Regular,double rpe =0)
         {
             this.rep = rep;
             this.weight = weight;
             this.type = setType;
+            this.rpe =rpe ;
         }
     }
 }

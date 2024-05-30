@@ -440,7 +440,7 @@
     </Style>
 
     <Style x:Key="CustomLabelStyle" TargetType="Label">
-        <Setter Property="FontSize" Value="Title" />
+        <Setter Property="FontSize" Value="Micro" />
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="HorizontalOptions" Value="Center" />
     </Style>
@@ -449,15 +449,21 @@
 
     <Style x:Key="CustomLabelSetStyle" TargetType="Label">
         <Setter Property="TextColor" Value="#45a3ea"/>
-        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="FontSize" Value="Small" />
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="HorizontalOptions" Value="Center" />
     </Style>
 
+    <Style x:Key="CustomLabelPreviousSetStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="FontSize" Value="Small" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+    </Style>
 
     <Style x:Key="CustomEntrySetStyle" TargetType="Entry">
-        <Setter Property="TextColor" Value="#45a3ea"/>
-        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="FontSize" Value="Small" />
         <Setter Property="VerticalOptions" Value="CenterAndExpand" />
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
         <Setter Property="Margin" Value="0,-10,0,-10"/>
@@ -467,14 +473,14 @@
 
 
     <Style x:Key="CustomBorderSmallNoStyle" TargetType="Border">
-        <Setter Property="Margin" Value="0,10,0,0" />
+        <Setter Property="Margin" Value="0,10,0,5" />
         <Setter Property="WidthRequest" Value="90"/>
         <Setter Property="HeightRequest" Value="40"/>
         <Setter Property="StrokeThickness" Value="0"/>
     </Style>
     
     <Style x:Key="CustomBorderSmallStyle" TargetType="Border">
-        <Setter Property="Margin" Value="0,10,0,0" />
+        <Setter Property="Margin" Value="0,10,0,5" />
         <Setter Property="WidthRequest" Value="90"/>
         <Setter Property="HeightRequest" Value="40"/>
         <Setter Property="StrokeThickness" Value="1"/>
@@ -488,6 +494,20 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="CustomBorderPreviousSetStyle" TargetType="Border">
+        <Setter Property="Margin" Value="0,10,0,5" />
+        <Setter Property="WidthRequest" Value="90"/>
+        <Setter Property="HeightRequest" Value="40"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+        <Setter Property="Stroke" Value="#2b3238"/>
+        <Setter Property="Background" Value="#2b3238"/>
+        <Setter Property="Padding" Value="0,0" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="Border.StrokeShape">
+            <Setter.Value>
+                <RoundRectangle CornerRadius="10" />
+            </Setter.Value>
+        </Setter>
+    </Style>
 
-    
 </ResourceDictionary>
