@@ -202,10 +202,34 @@
 
                         </VerticalStackLayout>
                     </Border>
+
+                    <Border Grid.Column="4" Stroke="#2b3238"  Grid.Row="1">
+                        <VerticalStackLayout x:Name="CheckStack" >
+
+
+                            <Label
+                                   Style="{StaticResource CustomLabelStyle}"
+                                   Text=""
+                            />
+
+                            <Border Style="{StaticResource CustomBorderSmallSetNoStyle}">
+                                <CheckBox ></CheckBox>
+                            </Border>
+                            <Border Style="{StaticResource CustomBorderSmallSetNoStyle}">
+                                <CheckBox></CheckBox>
+                            </Border>
+                            <Border Style="{StaticResource CustomBorderSmallSetNoStyle}">
+                                <CheckBox></CheckBox>
+                            </Border>
+
+
+                        </VerticalStackLayout>
+                    </Border>
+
                 </Grid>
 
 
-
+                <Button Grid.ColumnSpan="3" FontSize="Small" FontAttributes="Bold" Text="ADD SET" TextColor="#44a3ea" BackgroundColor="#2b3238" Margin="0,5,0,10"    VerticalOptions="Center" />
             </VerticalStackLayout>
 
 

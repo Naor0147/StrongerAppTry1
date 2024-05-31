@@ -468,6 +468,7 @@
         <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
         <Setter Property="Margin" Value="0,-10,0,-10"/>
         <Setter Property="HorizontalTextAlignment" Value="Center"/>
+      
     </Style>
 
 
@@ -514,6 +515,7 @@
                 <RoundRectangle CornerRadius="10" />
             </Setter.Value>
         </Setter>
+        
     </Style>
 
 

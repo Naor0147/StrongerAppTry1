@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace StrongerAppTry1.Pages;
 
 public partial class Excerics_Page : ContentPage
@@ -12,4 +14,7 @@ public partial class Excerics_Page : ContentPage
         Application.Current.MainPage = new NavigationPage(new MainPage());
 
     }
+
+
 }
+

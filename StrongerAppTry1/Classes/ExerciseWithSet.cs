@@ -3,8 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
+using Application = Microsoft.Maui.Controls.Application;
 
 namespace StrongerAppTry1.Classes
 {
@@ -12,6 +15,8 @@ namespace StrongerAppTry1.Classes
     {
         public Exercise _Exercise { get; set; }
         public List<Set> _Sets { get; set; }
+        public List<SetHelper> _SetsHelper { get; set; }
+
 
 
 
@@ -23,33 +28,44 @@ namespace StrongerAppTry1.Classes
         public ExerciseWithSet(Exercise exercise) {
             _Exercise = exercise;
             _Sets = new List<Set>();
+            _SetsHelper = new List<SetHelper>();    
             ShowExercise();
             addSet();
         }
-
+        //Add a new set that is visibale 
         public void addSet(Set set)
         {
             _Sets.Add(set);
-            AddSetNumber( _Sets.Count);
-            AddPrevious("150Kg x 2");
-            AddEntery(VerticalWeight, set.weight + "");
-            AddEntery(VerticalRep, set.rep + "");
+            AddSetNumber(_Sets.Count);
+
+            _SetsHelper.Add(new SetHelper(_Sets.Count, set, AddEntry(VerticalWeight, set.weight + ""), AddEntry(VerticalRep, set.rep + ""), AddPrevious("150Kg x 2")));
+
+           
+           
 
 
         }
         public void addSet()
         {
-
-            _Sets.Add(new Set(0,0));
+            Set set = new Set(0, 0);
+            _Sets.Add(set);
             AddSetNumber(_Sets.Count);
-            AddPrevious("10Kg x 2");
-            AddEntery(VerticalWeight,  "");
-            AddEntery(VerticalRep,  "");
+
+            _SetsHelper.Add( new SetHelper(_Sets.Count, set, AddEntry(VerticalWeight, ""), AddEntry(VerticalRep, ""), AddPrevious("10Kg x 2")));
+
+            
         }
 
-        private void AddPrevious(string text)
+        private Label AddPrevious(string text)
         {
-            VerticalPreviousSet.Children.Add(CreateStyledBorder(text));
+            var label = new Label
+            {
+                Text = text,
+                Style = (Style)Application.Current.Resources["CustomLabelPreviousSetStyle"]
+            };
+
+            VerticalPreviousSet.Children.Add(CreateStyledBorder(label));
+            return label;
         }
 
         public void removeLastSet()
@@ -102,29 +118,13 @@ namespace StrongerAppTry1.Classes
             VerticalRep = CreateRepsStack();
         }
 
-        private VerticalStackLayout CreateSet()
-        {
-           
-            var setStack = new VerticalStackLayout();
 
-
-            // Create and style the first Label
-            var labelSet = new Label
-            {
-                Text = "SET",
-                Style = (Style)Application.Current.Resources["CustomLabelStyle"]
-            };
-            setStack.Children.Add(labelSet);
-
-          
-            return setStack;
-        }
 
         private Label CreateExerciseNameLabel(Grid grid)
         {
             Label ExerciseNameLabel = new Label
             {
-                Style = (Style)Application.Current.Resources["ExerciseLabelStyle"],
+                Style = (Style)Microsoft.Maui.Controls.Application.Current.Resources["ExerciseLabelStyle"],
                 Text = _Exercise._Name
             };
             grid.SetColumnSpan(ExerciseNameLabel, 4);
@@ -133,67 +133,40 @@ namespace StrongerAppTry1.Classes
             return ExerciseNameLabel;
         }
 
-        private void AddSetNumber( int SetNumber)
+        private Label AddSetNumber( int SetNumber)
         {
-            VerticalSet.Children.Add(CreateStyledBorderForSets(SetNumber + ""));
+
+            var label = new Label
+            {
+                Text = SetNumber + "",
+                Style = (Style)Application.Current.Resources["CustomLabelSetStyle"]
+            };
+      
+            VerticalSet.Children.Add(CreateBorderForSet(label));
+            return label;
         }
 
-        // Helper method to create a styled Border with a Label
-        private Border CreateStyledBorderForSets(string text)
+        private static Border CreateBorderForSet(Label label)
         {
             var border = new Border
             {
                 Style = (Style)Application.Current.Resources["CustomBorderSmallNoStyle"]
             };
-
-            var label = new Label
-            {
-                Text = text,
-                Style = (Style)Application.Current.Resources["CustomLabelSetStyle"]
-            };
-
             border.Content = label;
             return border;
         }
 
-        public VerticalStackLayout CreatePreviousSetStack()
-        {
-            
+        // Helper method to create a styled Border with a Label
 
-            // Create the VerticalStackLayout
-            var verticalStackLayout = new VerticalStackLayout();
 
-            // Set Grid.Column for the VerticalStackLayout
-            Grid.SetColumn(verticalStackLayout, 1);
 
-            // Create and style the first Label
-            var labelPrevious = new Label
-            {
-                Text = "PREVIOUS",
-                Style = (Style)Application.Current.Resources["CustomLabelStyle"]
-            };
-            verticalStackLayout.Children.Add(labelPrevious);
-
-      
-
-            // Add the VerticalStackLayout to the main Border
-            return verticalStackLayout;
-
-             
-        }
 
         // Helper method to create a styled Border with a Label
-        private Border CreateStyledBorder(string text)
+        private Border CreateStyledBorder(Label label)
         {
             var border = new Border
             {
                 Style = (Style)Application.Current.Resources["CustomBorderPreviousSetStyle"]
-            };
-
-            var label = new Label
-            {
-                Text = text,
-                Style = (Style)Application.Current.Resources["CustomLabelPreviousSetStyle"]
             };
 
             border.Content = label;
@@ -215,6 +188,53 @@ namespace StrongerAppTry1.Classes
 
             return mainBorder;
         }
+       
+
+        private Entry AddEntry(VerticalStackLayout verticalStackLayout,string text)
+        {
+            Entry entry = new Entry
+            {
+                Text = text,
+                Style = (Style)Application.Current.Resources["CustomEntrySetStyle"]
+            };
+           
+
+            verticalStackLayout.Children.Add(CreateStyledBorderWithEntry(entry));
+            return entry;
+        }
+
+
+        // Helper method to create a styled Border with an Entry
+        private Border CreateStyledBorderWithEntry(Entry entry)
+        {
+            var border = new Border
+            {
+                Style = (Style)Application.Current.Resources["CustomBorderSmallStyle"]
+            };
+
+            border.Content = entry;
+            return border;
+        }
+
+        
+
+        public VerticalStackLayout CreateRepsStack()
+        {
+            var verticalStackLayout = new VerticalStackLayout();
+
+            // Set Grid.Column for the VerticalStackLayout
+            Grid.SetColumn(verticalStackLayout, 1);
+
+            // Create and style the first Label
+            var labelReps = new Label
+            {
+                Text = "REPS",
+                Style = (Style)Application.Current.Resources["CustomLabelStyle"]
+            };
+            verticalStackLayout.Children.Add(labelReps);
+            return verticalStackLayout;
+        }
+
         public VerticalStackLayout CreateWeightStack()
         {
 
@@ -231,60 +251,47 @@ namespace StrongerAppTry1.Classes
             };
             verticalStackLayout.Children.Add(labelKg);
 
-           
+
 
             return verticalStackLayout;
         }
-
-        private void AddEntery(VerticalStackLayout verticalStackLayout,string text)
+        public VerticalStackLayout CreatePreviousSetStack()
         {
-            verticalStackLayout.Children.Add(CreateStyledBorderWithEntry(text));
-        }
-
-
-        // Helper method to create a styled Border with an Entry
-        private Border CreateStyledBorderWithEntry(string text)
-        {
-            var border = new Border
-            {
-                Style = (Style)Application.Current.Resources["CustomBorderSmallStyle"]
-            };
-
-            var entry = new Entry
-            {
-                Text = text,
-                Style = (Style)Application.Current.Resources["CustomEntrySetStyle"]
-            };
-
-            border.Content = entry;
-            return border;
-        }
-        public VerticalStackLayout CreateRepsStack()
-        {
-            
+            // Create the VerticalStackLayout
             var verticalStackLayout = new VerticalStackLayout();
 
             // Set Grid.Column for the VerticalStackLayout
             Grid.SetColumn(verticalStackLayout, 1);
 
             // Create and style the first Label
-            var labelReps = new Label
+            var labelPrevious = new Label
             {
-                Text = "REPS",
+                Text = "PREVIOUS",
                 Style = (Style)Application.Current.Resources["CustomLabelStyle"]
             };
-            verticalStackLayout.Children.Add(labelReps);
-
-          
-
-
+            verticalStackLayout.Children.Add(labelPrevious);
 
             // Add the VerticalStackLayout to the main Border
-          
-
-            // Add the main Border to the page's content (assuming it's a Grid or similar)
-
             return verticalStackLayout;
+
+
+        }
+        private VerticalStackLayout CreateSet()
+        {
+
+            var setStack = new VerticalStackLayout();
+
+
+            // Create and style the first Label
+            var labelSet = new Label
+            {
+                Text = "SET",
+                Style = (Style)Application.Current.Resources["CustomLabelStyle"]
+            };
+            setStack.Children.Add(labelSet);
+
+
+            return setStack;
         }
     }
 }

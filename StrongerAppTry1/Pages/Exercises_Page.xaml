@@ -67,8 +67,8 @@
                 <Entry Text="he" FontSize="80 ">
                     
                 </Entry>
-            </VerticalStackLayout>
 
+            </VerticalStackLayout>
         </ScrollView>
         
         <Grid>
@@ -82,6 +82,9 @@
             </Border>
            
             <Button Grid.Column="0" FontSize="Medium" Text= "="  Clicked="Button_Clicked"   HorizontalOptions="Center" Margin="20" CornerRadius="14" VerticalOptions="Center" ></Button>
+
+
+            
 
         </Grid>
     </Grid>
