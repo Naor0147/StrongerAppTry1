@@ -13,31 +13,37 @@
 
         <Button FontSize="Small" Grid.Row="1" Text="go back" Clicked="Button_Clicked"   HorizontalOptions="Fill" Margin="20" CornerRadius="14"></Button>
 
-        
-    <VerticalStackLayout Margin="20,0,0,0"  >
-            <!-- Text="{Binding ExerciseWithSet}"-->
-
-            <Label  Margin="0,0,10,20"
-            Text="Exercise Name"
-                FontSize="Title"
-                FontAttributes="Bold"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" 
-                    TextColor="#4699dd"/>
-            <Grid >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="auto"/>
-
-                </Grid.ColumnDefinitions>
-                <Border  Stroke="#2b3238">
-                <VerticalStackLayout  x:Name="SetStack" >
+        <ScrollView>
+            <VerticalStackLayout Margin="0,0,0,0" x:Name="MyStackLayout"  >
+                <!-- Text="{Binding ExerciseWithSet}"-->
 
 
-                    <Label 
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="auto"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Label  
+                        Text="Exercise Name"
+                        Style="{StaticResource ExerciseLabelStyle}"/>
+
+ 
+
+                    <Border  Stroke="#2b3238"  Grid.Row="1">
+                        <VerticalStackLayout  x:Name="SetStack" >
+
+
+                            <Label 
                                 Style="{StaticResource CustomLabelStyle}"
                                 Text="SET"
 
@@ -46,246 +52,169 @@
 
 
 
-                    <Border 
-                     Style="{StaticResource CustomBorderSmallNoStyle}">
-                        <Label
+                            <Border 
+                     Style="{StaticResource CustomBorderSmallSetNoStyle}">
+                                <Label
                            Style="{StaticResource CustomLabelSetStyle}"
                                Text="1"
                         />
-                    </Border>
+                            </Border>
 
-                    <Border 
-                     Style="{StaticResource CustomBorderSmallNoStyle}">
-                        <Label
+                            <Border 
+                     Style="{StaticResource CustomBorderSmallSetNoStyle}">
+                                <Label
                            Style="{StaticResource CustomLabelSetStyle}"
                                Text="2"
                         />
-                    </Border>
-                    <Border 
-                     Style="{StaticResource CustomBorderSmallNoStyle}">
-                        <Label
+                            </Border>
+                            <Border 
+                     Style="{StaticResource CustomBorderSmallSetNoStyle}">
+                                <Label
                            Style="{StaticResource CustomLabelSetStyle}"
                                Text="3"
                         />
+                            </Border>
+
+
+                        </VerticalStackLayout>
                     </Border>
 
+                    <Border Grid.Column="2" Stroke="#2b3238"  Grid.Row="1">
+                        <VerticalStackLayout  x:Name="WeightStack" Grid.Column="1">
 
-                </VerticalStackLayout>
-                </Border>
-
-                <Border Grid.Column="2" Stroke="#2b3238">
-                    <VerticalStackLayout  x:Name="WeightStack" Grid.Column="1">
-
-                        <Label 
+                            <Label 
                              Style="{StaticResource CustomLabelStyle}"
                              Text="KG"
                       />
 
 
-                        <Border 
+                            <Border 
                             Style="{StaticResource CustomBorderSmallStyle}">
-                            <Entry
+                                <Entry
                                 Text="60"
                                 Style="{StaticResource CustomEntrySetStyle}"
                         />
 
-                        </Border>
+                            </Border>
 
 
-                        <Border 
+                            <Border 
                             Style="{StaticResource CustomBorderSmallStyle}">
-                            <Entry
+                                <Entry
                                 Text="90"
                                 Style="{StaticResource CustomEntrySetStyle}"
                         />
 
-                        </Border>
+                            </Border>
 
-                        <Border 
+                            <Border 
                             Style="{StaticResource CustomBorderSmallStyle}">
-                            <Entry
+                                <Entry
                                 Text="12"
                                 Style="{StaticResource CustomEntrySetStyle}"
                         />
 
-                        </Border>
+                            </Border>
 
 
-                    </VerticalStackLayout>
-                </Border>
+                        </VerticalStackLayout>
+                    </Border>
 
 
 
 
-                <Border Grid.Column="1" Stroke="#2b3238">
-                <VerticalStackLayout  x:Name="PreviousStack" Grid.Column="1">
+                    <Border Grid.Column="1" Stroke="#2b3238"  Grid.Row="1">
+                        <VerticalStackLayout  x:Name="PreviousStack" Grid.Column="1">
 
-                    <Label 
+                            <Label 
                              Style="{StaticResource CustomLabelStyle}"
                              Text="PREVIOUS"
                       />
 
 
-                        <Border 
+                            <Border 
                             Style="{StaticResource CustomBorderPreviousSetStyle}" >
-                            <Label
+                                <Label
                                 Text="60kg x 12"
                                 Style="{StaticResource CustomLabelPreviousSetStyle}"
                                 
                                 
                         />
 
-                        </Border>
+                            </Border>
 
 
-                        <Border 
+                            <Border 
                             Style="{StaticResource CustomBorderPreviousSetStyle}">
-                            <Label
+                                <Label
                                 Text="80kg x 8"
                                 Style="{StaticResource CustomLabelPreviousSetStyle}"
 
                         />
 
-                        </Border>
+                            </Border>
 
-                        <Border 
+                            <Border 
                             Style="{StaticResource CustomBorderPreviousSetStyle}">
-                            <Label
+                                <Label
                                 Text="100kg x 4"
                                 Style="{StaticResource CustomLabelPreviousSetStyle}"
 
                         />
 
-                        </Border>
+                            </Border>
 
 
-                    </VerticalStackLayout>
-                </Border>
+                        </VerticalStackLayout>
+                    </Border>
 
 
-                <Border Grid.Column="3" Stroke="#2b3238">
-                    <VerticalStackLayout x:Name="RepStack" Grid.Column="2">
+                    <Border Grid.Column="3" Stroke="#2b3238"  Grid.Row="1">
+                        <VerticalStackLayout x:Name="RepStack" Grid.Column="2">
 
-                        <Label
+                            <Label
                                Style="{StaticResource CustomLabelStyle}"
                                Text="REPS"
                         />
 
 
 
-                        <Border 
+                            <Border 
                             Style="{StaticResource CustomBorderSmallStyle}">
-                            <Entry
+                                <Entry
                                 Text="12"
                                 Style="{StaticResource CustomEntrySetStyle}"
                         />
 
-                        </Border>
+                            </Border>
 
-                        <Border 
+                            <Border 
                             Style="{StaticResource CustomBorderSmallStyle}">
-                            <Entry
+                                <Entry
                                 Text="12"
                                 Style="{StaticResource CustomEntrySetStyle}"
                         />
 
-                        </Border>
+                            </Border>
 
 
 
 
-                    </VerticalStackLayout>
-                </Border>
-            </Grid>
-
-
-        <Label  Margin="0,0,10,20"
-         Text="Exercise Name"
-             FontSize="Title"
-             FontAttributes="Bold"
-         VerticalOptions="Center" 
-         HorizontalOptions="Center" />
-
-            <VerticalStackLayout Spacing="10">
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-
-                    </Grid.ColumnDefinitions>
-                    <Border Grid.ColumnSpan="4" StrokeThickness="1" Stroke="Brown">
-                        <Rectangle Background="Gray" ></Rectangle>
+                        </VerticalStackLayout>
                     </Border>
-                    <Label 
-                         Style="{StaticResource CustomLabelStyle}"
-                         Text="set"
-Grid.Column="0"
-                        />
-                    <Label 
-                         Style="{StaticResource CustomLabelStyle}"
-                         Text="kg"
-Grid.Column="1"
-
-                        />
-                    <Label 
-                         Style="{StaticResource CustomLabelStyle}"
-                         Text="Reps"
-                        Grid.Column="2"
-
-                        />
-                    <Label 
-                         Style="{StaticResource CustomLabelStyle}"
-                         Text="Rpe"
-                        Grid.Column="3"
-
-                        />
                 </Grid>
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
 
-                    </Grid.ColumnDefinitions>
-                    <Border Grid.ColumnSpan="4" StrokeThickness="1" Stroke="Brown" Padding="10">
-                        <Rectangle  ></Rectangle>
-                    </Border>
-                    <Label
-                    Style="{StaticResource CustomLabelSetStyle}"
-       Text="1"
-        FontSize="Title"
-/>
-                    <Label 
-                         Style="{StaticResource CustomLabelStyle}"
-                         Text="60"
-Grid.Column="1"
 
-                        />
-                    <Label 
-                         Style="{StaticResource CustomLabelStyle}"
-                         Text="Reps"
-                        Grid.Column="2"
 
-                        />
-                    <Label 
-                         Style="{StaticResource CustomLabelStyle}"
-                         Text="Rpe"
-                        Grid.Column="3"
-
-                        />
-                </Grid>
             </VerticalStackLayout>
 
 
-        </VerticalStackLayout>
 
+        </ScrollView>
         <!-- diffreant layout  -->
-        
-        
-        
-        
+
+
+
+
     </Grid>
 </ContentPage>

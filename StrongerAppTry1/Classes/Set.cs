@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StrongerAppTry1.Classes
 {
-    enum SetType {
+    public enum SetType {
         Regular ,
         WarmUp,
         DropSet,
@@ -16,7 +16,7 @@ namespace StrongerAppTry1.Classes
     //    None,
     //}
 
-    struct Set
+    public struct Set
     {
         public double rep { get; set; }
         public double weight { get; set; }
