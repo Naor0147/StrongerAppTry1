@@ -29,10 +29,18 @@ namespace StrongerAppTry1
                     App.Current.MainPage = new NavigationPage(new NewPage2());
 
                     break;
+                case "NewPage3":
+                    App.Current.MainPage = new NavigationPage(new NewPage3());
 
+                    break;
 
             }
            
+
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
 
         }
     }

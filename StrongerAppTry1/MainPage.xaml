@@ -41,6 +41,10 @@
                
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Fill" />
+            <Button
+                Text="NewPage3"
+                Clicked="OnCounterClicked"
+                />
 
         </VerticalStackLayout>
     </ScrollView>

@@ -489,7 +489,7 @@
     
     <Style x:Key="CustomBorderSmallStyle" TargetType="Border">
         <Setter Property="Margin" Value="0,10,0,5" />
-        <Setter Property="WidthRequest" Value="90"/>
+        <Setter Property="WidthRequest" Value="85"/>
         <Setter Property="HeightRequest" Value="40"/>
         <Setter Property="StrokeThickness" Value="1"/>
         <Setter Property="Stroke" Value="#3d4749"/>
@@ -503,7 +503,6 @@
         </Setter>
     </Style>
     <Style x:Key="CustomBorderPreviousSetStyle" TargetType="Border">
-        <Setter Property="Margin" Value="0,10,0,5" />
         <Setter Property="HeightRequest" Value="40"/>
         <Setter Property="StrokeThickness" Value="1"/>
         <Setter Property="Stroke" Value="#2b3238"/>
@@ -526,7 +525,7 @@
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="TextColor" Value="white" />
-        <Setter Property="Grid.ColumnSpan" Value="4" />
+        <Setter Property="Grid.ColumnSpan" Value="5" />
     </Style>
 
 

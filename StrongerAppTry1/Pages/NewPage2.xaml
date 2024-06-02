@@ -230,10 +230,12 @@
 
 
                 <Button Grid.ColumnSpan="3" FontSize="Small" FontAttributes="Bold" Text="ADD SET" TextColor="#44a3ea" BackgroundColor="#2b3238" Margin="0,5,0,10"    VerticalOptions="Center" />
+           
+          
+                
+
             </VerticalStackLayout>
-
-
-
+        
         </ScrollView>
         <!-- diffreant layout  -->
 
