@@ -5,28 +5,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="NewPage3">
     <ScrollView Background="#293237">
-        <VerticalStackLayout>
+        <VerticalStackLayout x:Name="WorkoutVertical">
             <Border>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="2.5*" />
-                        <ColumnDefinition Width="2*" />
-                        <ColumnDefinition Width="2*" />
-                        <ColumnDefinition Width="auto" />
-                    </Grid.ColumnDefinitions>
+                <VerticalStackLayout>
 
 
                     <Label Style="{StaticResource ExerciseLabelStyle}" Text="Exercise Name" />
 
 
-                    <Grid Grid.Row="2" Grid.ColumnSpan="5">
+                    <Grid>
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*" />
@@ -70,106 +57,38 @@
 
 
 
+                        <Border Grid.Row="1" Grid.ColumnSpan="5">
+                            <VerticalStackLayout
+                                x:Name="SetsVertical"
+                                Grid.Row="1"
+                                Grid.ColumnSpan="5" />
 
 
+                        </Border>
 
-                        <Grid Grid.Row="3" Grid.ColumnSpan="5">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*" />
-                                <ColumnDefinition Width="2.5*" />
-                                <ColumnDefinition Width="2*" />
-                                <ColumnDefinition Width="2*" />
-                                <ColumnDefinition Width="auto" />
-                            </Grid.ColumnDefinitions>
-
-                            <Label
-                                Style="{StaticResource CustomLabelSetStyle}"
-                                Text="2"
-                                VerticalOptions="CenterAndExpand" />
-
-                            <Border Grid.Column="1" Style="{StaticResource CustomBorderPreviousSetStyle}">
-                                <Label Style="{StaticResource CustomLabelPreviousSetStyle}" Text="60kg x 12" />
-                            </Border>
-
-                            <Border Grid.Column="2" Style="{StaticResource CustomBorderSmallStyle}">
-
-                                <Entry Style="{StaticResource CustomEntrySetStyle}" Text="60" />
-                            </Border>
-
-                            <Border Grid.Column="3" Style="{StaticResource CustomBorderSmallStyle}">
-
-                                <Entry Style="{StaticResource CustomEntrySetStyle}" Text="60" />
-
-
-                            </Border>
-
-                            <CheckBox Grid.Column="4" />
-                        </Grid>
-
-
-                        <Rectangle
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="5"
-                            BackgroundColor="#2b3238" />
-
-
-
-
-
-                        <Grid Grid.Row="1" Grid.ColumnSpan="5">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*" />
-                                <ColumnDefinition Width="2.5*" />
-                                <ColumnDefinition Width="2*" />
-                                <ColumnDefinition Width="2*" />
-                                <ColumnDefinition Width="auto" />
-                            </Grid.ColumnDefinitions>
-
-                            <Label
-                                Style="{StaticResource CustomLabelSetStyle}"
-                                Text="1"
-                                VerticalOptions="CenterAndExpand" />
-
-                            <Border Grid.Column="1" Style="{StaticResource CustomBorderPreviousSetStyle}">
-                                <Label Style="{StaticResource CustomLabelPreviousSetStyle}" Text="60kg x 12" />
-                            </Border>
-
-                            <Border Grid.Column="2" Style="{StaticResource CustomBorderSmallStyle}">
-
-                                <Entry Style="{StaticResource CustomEntrySetStyle}" Text="60" />
-                            </Border>
-
-                            <Border Grid.Column="3" Style="{StaticResource CustomBorderSmallStyle}">
-
-                                <Entry Style="{StaticResource CustomEntrySetStyle}" Text="60" />
-
-
-                            </Border>
-
-                            <CheckBox Grid.Column="4" />
-                        </Grid>
-
+                        <Button
+                            Grid.Row="3"
+                            Grid.ColumnSpan="4"
+                            BackgroundColor="#2b3238"
+                            Clicked="Button_Clicked_1"
+                            FontAttributes="Bold"
+                            FontSize="Small"
+                            Text="ADD SET"
+                            TextColor="#44a3ea"
+                            VerticalOptions="Center" />
 
                     </Grid>
 
 
-                    <Button
-                        Grid.Row="3"
-                        Grid.ColumnSpan="4"
-                        BackgroundColor="#2b3238"
-                        FontAttributes="Bold"
-                        FontSize="Small"
-                        Text="ADD SET"
-                        TextColor="#44a3ea"
-                        VerticalOptions="Center" />
 
-                </Grid>
+                </VerticalStackLayout>
             </Border>
 
 
 
 
+
+            <Rectangle BackgroundColor="Green" />
 
             <Button
                 Grid.ColumnSpan="4"
@@ -178,7 +97,9 @@
                 CornerRadius="14"
                 FontSize="Small"
                 HorizontalOptions="Fill"
-                Text="go back" />
+                Text="go back" 
+                VerticalOptions="End"
+                />
 
         </VerticalStackLayout>
 

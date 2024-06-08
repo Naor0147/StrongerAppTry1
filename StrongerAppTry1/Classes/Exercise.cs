@@ -8,6 +8,7 @@ namespace StrongerAppTry1.Classes
 {
     public enum BodyGroup
     {
+        NaN ,
         Arms,Legs, Shoulder,Back,Chest
     }
     
@@ -31,7 +32,7 @@ namespace StrongerAppTry1.Classes
             _BodyGroup = bodyGroup;
             _ImageSource = imageSource;
         }
-        public Exercise(string name, string description, BodyGroup bodyGroup)
+        public Exercise(string name, string description="", BodyGroup bodyGroup=BodyGroup.NaN)
         {
             _Name = name;
             _Description = description;

@@ -529,4 +529,16 @@
     </Style>
 
 
+    <Style x:Key="AddSetButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#2b3238" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="Small" />
+        <Setter Property="TextColor" Value="#44a3ea" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <Style x:Key="BorderDebug" TargetType="Border">
+        <Setter Property="BackgroundColor" Value="#2b3238"/>
+    </Style>
+
 </ResourceDictionary>

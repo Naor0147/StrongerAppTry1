@@ -18,17 +18,19 @@ namespace StrongerAppTry1.Classes
 
     public struct Set
     {
-        public double rep { get; set; }
-        public double weight { get; set; }
-        public SetType type { get; set; }
+        public int NumberOfTheSet { get; set; }
+        public double Reps { get; set; }
+        public double Weight { get; set; }
+        public SetType SetType { get; set; }
 
         public double rpe {  get; set; }
 
-        public Set(double rep, double weight, SetType setType = SetType.Regular,double rpe =0)
+        public Set(int NumberOfTheSet, double rep, double weight, SetType setType = SetType.Regular,double rpe =0)
         {
-            this.rep = rep;
-            this.weight = weight;
-            this.type = setType;
+            this.NumberOfTheSet = NumberOfTheSet;  
+            this.Reps = rep;
+            this.Weight = weight;
+            this.SetType = setType;
             this.rpe =rpe ;
         }
     }

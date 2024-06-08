@@ -35,10 +35,10 @@ namespace StrongerAppTry1.Classes
         //Add a new set that is visibale 
         public void addSet(Set set)
         {
-            _Sets.Add(set);
-            AddSetNumber(_Sets.Count);
+            _SetsHelper.Add(new SetHelper(set));
 
-            _SetsHelper.Add(new SetHelper(_Sets.Count, set, AddEntry(VerticalWeight, set.weight + ""), AddEntry(VerticalRep, set.rep + ""), AddPrevious("150Kg x 2")));
+
+            
 
            
            
@@ -47,11 +47,9 @@ namespace StrongerAppTry1.Classes
         }
         public void addSet()
         {
-            Set set = new Set(0, 0);
-            _Sets.Add(set);
-            AddSetNumber(_Sets.Count);
+            Set set = new Set(_SetsHelper.Count+1,0, 0);
 
-            _SetsHelper.Add( new SetHelper(_Sets.Count, set, AddEntry(VerticalWeight, ""), AddEntry(VerticalRep, ""), AddPrevious("10Kg x 2")));
+            _SetsHelper.Add( new SetHelper( set));
 
             
         }
